@@ -48,11 +48,11 @@ class Test_IP_Address_to_Number_Solution(unittest.TestCase):
         self.assertEqual(self.iptn.ipToNum('.1.1.1'), "LengthError: min string length is 7 symbols", "The program works with a string less than the minimum possible length")
         self.assertEqual(self.iptn.ipToNum('255.255.255.255 '), "LengthError: max string length is 15 symbols", "The program works with a string larger than the maximum possible length")
 
-    def test_ip_to_num_bytes_values_out_of_range_input(self):
+    def test_ip_to_num_octets_values_out_of_range_input(self):
         self.assertEqual(self.iptn.ipToNum('1000.0.0.0'), "ValueError: Some octets' values is very big", "The program works with too large octet values")
         self.assertEqual(self.iptn.ipToNum('-55.56.-55.55'), "ValueError: Some octet has no digit symbol", "The program works with negative octet values")
 
-    def test_ip_to_num_bytes_with_no_digit_symbols_input(self):
+    def test_ip_to_num_octetss_with_no_digit_symbols_input(self):
         self.assertEqual(self.iptn.ipToNum('1+1.1+1.1+1.1+1'), "ValueError: Some octet has no digit symbol", "The program works with octets with non-numeric characters")
         self.assertEqual(self.iptn.ipToNum('(-0./20|.%0.^,1'), "ValueError: Some octet has no digit symbol", "The program works with octets with non-numeric characters")
         self.assertEqual(self.iptn.ipToNum('abc.def.jhg.klm'), "ValueError: Some octet has no digit symbol", "The program works with literal octet values")
@@ -88,3 +88,4 @@ class Test_IP_Address_to_Number_Solution(unittest.TestCase):
 
 if __name__ == "__main__":
   unittest.main()
+
