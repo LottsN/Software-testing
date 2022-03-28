@@ -14,9 +14,9 @@ class IP_Address_to_Number_Solution:
         if len(str_ip) != 4:
             return "ValueError: you inputed not IPv4"
         if ( not str_ip[0].isdecimal() or not str_ip[1].isdecimal() or not str_ip[2].isdecimal() or not str_ip[3].isdecimal()):
-            return "ValueError: Some byte has no digit symbol"
+            return "ValueError: Some octet has no digit symbol"
         if ( int(str_ip[0]) > 255 or int(str_ip[1]) > 255 or int(str_ip[2]) > 255 or int(str_ip[3]) > 255 ):
-            return "ValueError: Some bytes' values is very big"
+            return "ValueError: Some octets' values is very big"
         bin_line = bin( int(str_ip[0]) )[2:].zfill(8) + bin( int(str_ip[1]) )[2:].zfill(8) + bin( int(str_ip[2]) )[2:].zfill(8) + bin( int(str_ip[3]) )[2:].zfill(8)
         return (int(bin_line, 2))
 
@@ -28,9 +28,9 @@ class IP_Address_to_Number_Solution:
         if int_ip > 4294967295:
             return "ValueError: IPv4 cannot be more then 4294967295"
         bin_line = bin(int_ip)[2:].zfill(32)
-        byte4 = bin_line[-8:]
-        byte3 = bin_line[-16:-8]
-        byte2 = bin_line[-24:-16]
-        byte1 = bin_line[-32:-24]
-        ip_address = ".".join([ str(int(byte1, 2)), str(int(byte2, 2)), str(int(byte3, 2)), str(int(byte4, 2)), ])
+        octet4 = bin_line[-8:]
+        octet3 = bin_line[-16:-8]
+        octet2 = bin_line[-24:-16]
+        octet1 = bin_line[-32:-24]
+        ip_address = ".".join([ str(int(octet1, 2)), str(int(octet2, 2)), str(int(octet3, 2)), str(int(octet4, 2)), ])
         return (ip_address)
